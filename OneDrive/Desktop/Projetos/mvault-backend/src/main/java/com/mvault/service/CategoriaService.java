@@ -43,7 +43,7 @@ public class CategoriaService {
         Categoria categoria = new Categoria(
                 request.nome(),
                 request.descricao(),
-                true // Sempre inicia como ativo
+                true 
         );
 
         Categoria categoriaSalva = categoriaRepository.save(categoria);
@@ -77,7 +77,7 @@ public class CategoriaService {
 
     private Categoria buscarEntidadePorId(Long id) {
         return categoriaRepository.findById(id)
-                .filter(Categoria::getAtivo) // Garante que só encontra se ativo = true
+                .filter(Categoria::getAtivo) 
                 .orElseThrow(() -> new ResourceNotFoundException("Categoria não encontrada com o ID: " + id));
     }
 }
