@@ -87,6 +87,15 @@ export default function ProdutosPage() {
     setIsMovModalOpen(true);
   };
 
+  const handleInativar = async (id) => {
+    try {
+      await produtoService.excluir(id);
+      carregarProdutos();
+    } catch (err) {
+      console.error('Erro ao inativar produto:', err);
+    }
+  };
+
   return (
     <div className="space-y-10">
       {/* Header com Frase de Impacto e Botão Estável */}
@@ -247,6 +256,12 @@ export default function ProdutosPage() {
                           className="text-xs text-[#5c564c] hover:text-white transition cursor-pointer"
                         >
                           Editar
+                        </button>
+                        <button
+                          onClick={() => handleInativar(p.id)}
+                          className="text-xs text-rose-400 hover:text-rose-300 transition cursor-pointer"
+                        >
+                          Inativar
                         </button>
                       </td>
                     </tr>

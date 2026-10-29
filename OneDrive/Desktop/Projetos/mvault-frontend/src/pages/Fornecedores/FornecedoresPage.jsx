@@ -33,6 +33,15 @@ export default function FornecedoresPage() {
     carregarFornecedores();
   }, []);
 
+  const handleInativar = async (id) => {
+    try {
+      await fornecedorService.desativar(id);
+      carregarFornecedores();
+    } catch (err) {
+      console.error('Erro ao inativar fornecedor:', err);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -136,6 +145,16 @@ export default function FornecedoresPage() {
                   <span className="w-16 text-[#5c564c]">Telefone:</span>
                   <span className="text-white">{f.telefone || '—'}</span>
                 </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#1c1a14] flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => handleInativar(f.id)}
+                  className="text-xs text-rose-400 hover:text-rose-300 transition cursor-pointer"
+                >
+                  Inativar
+                </button>
               </div>
             </div>
           ))
