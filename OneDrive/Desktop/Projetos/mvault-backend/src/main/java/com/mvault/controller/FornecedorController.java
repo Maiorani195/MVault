@@ -64,14 +64,14 @@ public class FornecedorController {
 
 }
 
-@PutMapping
+@PutMapping("/{id}")
     @Operation(summary = "Atualiza os dados de um fornecedor existente")
     public ResponseEntity<FornecedorResponse> atualiza(@PathVariable Long id, @RequestBody @Valid FornecedorRequest request) {
     FornecedorResponse response = fornecedorService.atualizar(id, request);
     return ResponseEntity.ok(response);
 }
 
-@DeleteMapping
+@DeleteMapping("/{id}")
     @Operation(summary = "Desativa um fornecedor na maneira SOFT DELETE")
     public ResponseEntity<Void> desativar(@PathVariable Long id){
         fornecedorService.desativar(id);

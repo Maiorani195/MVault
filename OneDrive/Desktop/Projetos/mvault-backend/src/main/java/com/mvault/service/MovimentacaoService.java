@@ -51,8 +51,8 @@ public class MovimentacaoService {
     @Transactional
     @Operation(summary = "Registo de Movimentação com impacto no Estoque")
     public MovimentacaoResponse criar(MovimentacaoRequest request) {
-        Produto produto = produtosRepository.findById(request.produtoID())
-                .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com id: " + request.produtoID()));
+        Produto produto = produtosRepository.findById(request.produtoId())
+                .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com id: " + request.produtoId()));
 
         if (!produto.getAtivo()) {
             throw new BusinessException("Não é possivel movimentar o estoque de um produto que está inativo!");

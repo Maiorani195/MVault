@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+
+  --color-canvas: #0c0b0a;
+  --color-surface: #131210;
+  --color-surface-elevated: #1a1815;
+  --color-border-base: #24211a;
+  --color-border-hover: #383328;
+  --color-amber-brand: #d97706;
+  --color-amber-bright: #f59e0b;
+  --color-text-muted: #8c8577;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0c0b0a;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografia de títulos com espaçamento refinado */
+.font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.035em;
+}
+
+/* Espaçamento elegante para subtítulos e categorias */
+.tracking-refined {
+  letter-spacing: 0.08em;
+}
+
+/* Números tabulares para precisão contábil */
+.tabular-data {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  letter-spacing: 0.02em;
+}
+
+/* Scrollbar fina */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0b0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #24211a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #383328;
+}
